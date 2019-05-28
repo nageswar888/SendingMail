@@ -4,7 +4,7 @@ import Promise from 'bluebird';
 export class usersDao {
   static getAll() {
     return new Promise((resolve, reject) => {
-      models.users.findAndCountAll()
+      models.User.findAndCountAll()
         .then(users => {
           resolve(users);
         })
@@ -17,14 +17,9 @@ export class usersDao {
   static createNew(_body) {
     console.log("----------dao method",_body)
     return new Promise((resolve, reject) => {
-      models.users.create({
-        firstName:_body.firstName,
-        lastName: _body.lastName,
-        phone: _body.phone,
-        email: _body.email,
-        address: _body.address,
-        role: _body.role,
-        password: _body.password
+      models.User.create({
+        name:_body.name,
+        mail: _body.mail
       }).then(user => {
         resolve(user);
       })
@@ -35,7 +30,7 @@ export class usersDao {
   static delete(paramet) {
     console.log("////////////",paramet)
     return new Promise((resolve, reject) => {
-      models.users.destroy({where: {id: paramet}})
+      models.User.destroy({where: {id: paramet}})
         .then(users => {
           resolve(users);
         })
@@ -48,7 +43,7 @@ export class usersDao {
   static getByEmail(paramet) {
     console.log("////////////",paramet)
     return new Promise((resolve, reject) => {
-      models.users.findAll({where: {email: paramet}})
+      models.User.findAll({where: {mail: paramet}})
         .then(users => {
           resolve(users);
         })
