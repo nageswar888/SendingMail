@@ -26,7 +26,7 @@ export class SendmailComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      mail: ['knageswar@gmail.com', [Validators.required,Validators.pattern("^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$")]],
+      mail: ['knageswar888@gmail.com', [Validators.required,Validators.pattern("^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$")]],
       name: ['nag007', [Validators.required]]
     });
 
